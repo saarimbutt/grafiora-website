@@ -169,15 +169,18 @@
     var panel = item.querySelector(".faq-a");
     if (!btn || !panel) return;
     btn.addEventListener("click", function () {
-      var isOpen = item.classList.contains("open");
-      document.querySelectorAll(".faq-item.open").forEach(function (other) {
+      var willOpen = !item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(function (other) {
         other.classList.remove("open");
         var b = other.querySelector(".faq-q");
+        var p = other.querySelector(".faq-a");
         if (b) b.setAttribute("aria-expanded", "false");
+        if (p) p.style.maxHeight = "0px";
       });
-      if (!isOpen) {
+      if (willOpen) {
         item.classList.add("open");
         btn.setAttribute("aria-expanded", "true");
+        panel.style.maxHeight = panel.scrollHeight + "px";
       }
     });
   });
