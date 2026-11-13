@@ -204,6 +204,45 @@
       if (e.key === "Escape") closeMenu();
     });
   }
+  /* Legal dialogs (single-page home): Privacy Policy and Terms &
+     Conditions open in place instead of loading another page. */
+  (function () {
+    var triggers = document.querySelectorAll("[data-dialog]");
+    if (!triggers.length) return;
+    var lastTrigger = null;
+    function openDialog(id, trigger) {
+      var dlg = document.getElementById(id);
+      if (!dlg) return;
+      lastTrigger = trigger || null;
+      dlg.hidden = false;
+      document.body.style.overflow = "hidden";
+      var closeBtn = dlg.querySelector(".dialog-close");
+      if (closeBtn) closeBtn.focus();
+    }
+    function closeDialog(dlg) {
+      dlg.hidden = true;
+      document.body.style.overflow = "";
+      if (lastTrigger) lastTrigger.focus();
+    }
+    triggers.forEach(function (t) {
+      t.addEventListener("click", function () {
+        openDialog(t.getAttribute("data-dialog"), t);
+      });
+    });
+    document.querySelectorAll(".dialog-overlay").forEach(function (dlg) {
+      dlg.addEventListener("click", function (e) {
+        if (e.target === dlg || e.target.closest(".dialog-close")) closeDialog(dlg);
+      });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        document.querySelectorAll(".dialog-overlay").forEach(function (dlg) {
+          if (!dlg.hidden) closeDialog(dlg);
+        });
+      }
+    });
+  })();
+
   /* Scroll progress line: thin yellow bar fixed at the very top of the
      viewport; fills left-to-right as the page scrolls down, empties back
      as it scrolls up. The bar element is created here so every page gets

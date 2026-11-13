@@ -67,6 +67,7 @@ p { margin: 0 0 16px; }
 }
 
 .section { background: var(--white); padding: 52px 0; }
+section[id] { scroll-margin-top: 128px; }
 .section-head { max-width: 720px; margin-bottom: 36px; }
 .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
 
@@ -163,7 +164,7 @@ p { margin: 0 0 16px; }
   left: 0;
   height: 4px;
   width: 0;
-  background: var(--yellow);
+  background: linear-gradient(90deg, var(--yellow-light), var(--yellow) 55%, var(--yellow-dark));
   z-index: 100;
   pointer-events: none;
 }
@@ -261,7 +262,7 @@ p { margin: 0 0 16px; }
 .hero h1 { line-height: 1.32; font-size: clamp(40px, 5.6vw, 76px); max-width: 7.3em; }
 
 .hero h1 .hl {
-  background: var(--yellow);
+  background: linear-gradient(180deg, var(--yellow-light) 0%, var(--yellow) 100%);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   padding: 0.02em 0.26em;
@@ -483,7 +484,7 @@ p { margin: 0 0 16px; }
   border: 1px solid var(--line);
   border-radius: 30px;
   box-shadow: var(--shadow-pill);
-  padding: 20px 32px;
+  padding: 16px 32px;
   min-height: 85px;
   height: auto;
   overflow: visible;
@@ -499,7 +500,7 @@ p { margin: 0 0 16px; }
 .platform-label {
   margin: 0;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -521,7 +522,7 @@ p { margin: 0 0 16px; }
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 14px 36px;
+  gap: 14px 32px;
   width: 100%;
 }
 
@@ -529,7 +530,7 @@ p { margin: 0 0 16px; }
   opacity: 0.70;
   color: #000000;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.3;
   display: flex;
   align-items: center;
@@ -568,7 +569,7 @@ p { margin: 0 0 16px; }
 }
 
 .fact-value .hl {
-  background: var(--yellow);
+  background: linear-gradient(180deg, var(--yellow-light) 0%, var(--yellow) 100%);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   padding: 0.02em 0.18em;
@@ -797,7 +798,7 @@ p { margin: 0 0 16px; }
 
 /* ---------- FAQ ---------- */
 
-.faq-list { max-width: 960px; margin: 0 auto; display: grid; gap: 14px; }
+.faq-list { max-width: 960px; margin: 0 auto; display: grid; gap: 16px; }
 
 .faq-item { border: 1px solid var(--line); border-radius: 16px; background: var(--white); overflow: hidden; }
 
@@ -810,7 +811,7 @@ p { margin: 0 0 16px; }
   text-align: left;
   background: none;
   border: 0;
-  padding: 20px 24px;
+  padding: 28px 24px;
   font-family: var(--font-head);
   font-size: 18px;
   font-weight: 700;
@@ -820,8 +821,8 @@ p { margin: 0 0 16px; }
 
 .faq-q .faq-icon {
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: var(--yellow);
   color: var(--navy);
@@ -830,12 +831,12 @@ p { margin: 0 0 16px; }
   justify-content: center;
   transition: transform 0.2s ease;
 }
-.faq-q .faq-icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.faq-q .faq-icon svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .faq-item.open .faq-q .faq-icon { transform: rotate(180deg); }
 
 .faq-a { display: none; padding: 0 24px 22px; color: var(--ink-soft); }
 .faq-a p { margin: 0; }
-.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-a { display: block; border-top: 1px solid var(--line); padding-top: 18px; }
 
 /* ---------- Showcase band ---------- */
 
@@ -954,6 +955,80 @@ p { margin: 0 0 16px; }
 
 /* ---------- Tablet: <=1023px ---------- */
 
+/* ---------- Legal dialogs (home) ---------- */
+
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(16, 21, 34, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.dialog-overlay[hidden] { display: none; }
+.dialog-panel {
+  position: relative;
+  background: var(--white);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 720px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: 32px 32px 28px;
+  box-shadow: 0 24px 64px rgba(16, 21, 34, 0.28);
+}
+.dialog-panel > h2 { margin: 0 0 8px; padding-right: 44px; }
+.dialog-lead { color: var(--ink-soft); margin: 0 0 20px; }
+.dialog-body h2 { font-size: 19px; margin: 22px 0 8px; }
+.dialog-body h2:first-child { margin-top: 0; }
+.dialog-body p { color: var(--ink-soft); margin: 0 0 14px; }
+.dialog-body ul { color: var(--ink-soft); padding-left: 20px; margin: 0 0 14px; }
+.dialog-body li + li { margin-top: 6px; }
+.dialog-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.footer-links .footer-dialog-btn {
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.footer-links .footer-dialog-btn:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--yellow);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+.inline-dialog-btn {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--yellow);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 1023px) {
   .container { width: calc(100% - 48px); }
 
@@ -1022,7 +1097,8 @@ p { margin: 0 0 16px; }
   .eyebrow-work .eb-stacked { display: inline; }
 
   /* Hero SPLITS on tablet like desktop; stacked only <=767px. */
-  .hero { scroll-margin-top: 120px; padding: 52px 0 96px; }
+  .hero { scroll-margin-top: 120px; padding: 48px 0 80px; }
+  section[id] { scroll-margin-top: 120px; }
   .hero .container { grid-template-columns: 1fr 460px; gap: 32px; }
   /* Glow re-anchored to the fan area: 520x280, centre 250px above the hero foot. */
   .hero::before {
@@ -1042,14 +1118,24 @@ p { margin: 0 0 16px; }
   .hero-fan .vbtn svg { width: 15px; height: 15px; }
   .platform-pill { width: calc(100% - 48px); border-radius: 30px; }
   .platform-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 12px; }
-  .platform-list li { flex-direction: column; gap: 6px; justify-content: center; font-size: 15px; white-space: nowrap; }
+  .platform-list li { justify-content: center; font-size: 15px; white-space: nowrap; }
   .platform-list svg { height: 20px; }
+  .facts-sec { padding-top: 88px; }
+  .final-cta { padding: 70px 0; }
   .facts-grid { grid-template-columns: repeat(3, 1fr); }
   /* Tablet fact headlines stay small enough that "Conversion" (5.47em)
      fits the narrower cards without overflowing. */
   .fact-card .fact-value { font-size: clamp(28px, 3.2vw, 40px); }
   .work-grid { grid-template-columns: repeat(3, 1fr); }
-  .why-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  /* Tablet Why stacks like phone: heading/intro, video, benefits. */
+  .why-grid { display: flex; flex-direction: column; gap: 0; }
+  .why-grid > div { display: contents; }
+  .why-grid .eyebrow { order: 1; }
+  .why-grid h2 { order: 2; }
+  .why-grid .lead { order: 3; }
+  .why-grid .why-video { order: 4; }
+  .why-grid .benefit-list { order: 5; }
+  .why-video { max-width: 420px; margin: 0 auto; width: 100%; }
   .steps-grid { grid-template-columns: repeat(4, 1fr); }
   .pricing-grid { grid-template-columns: repeat(3, 1fr); }
   .project-layout { grid-template-columns: minmax(0, 360px) 1fr; gap: 36px; }
@@ -1071,7 +1157,8 @@ p { margin: 0 0 16px; }
   .main-nav a { font-size: 14px; padding: 10px 0; }
   .header-cta { display: none; }
 
-  .hero { scroll-margin-top: 112px; padding: 44px 0 84px; }
+  .hero { scroll-margin-top: 112px; padding: 44px 0 72px; }
+  section[id] { scroll-margin-top: 112px; }
   .hero .container { grid-template-columns: 1fr; gap: 40px; }
   /* Phone headline breaks into 2 lines — "Video ads built to" /
      "stop the scroll." — with one yellow pill. The 9em cap holds the
@@ -1092,12 +1179,14 @@ p { margin: 0 0 16px; }
   .showcase-fan .fan-card.right .vcard-pill { transform: translateX(11px); }
 
   .platform-strip { margin-top: -10px; }
+  .dialog-overlay { padding: 16px; }
+  .dialog-panel { padding: 24px 20px; }
   .platform-pill { width: calc(100% - 36px); border-radius: 28px; padding: 18px 12px; }
   .platform-list { gap: 12px 8px; }
-  .platform-list li { font-size: 13px; }
+  .platform-list li { flex-direction: column; gap: 6px; font-size: 13px; }
   .platform-list svg { height: 19px; }
 
-  .facts-sec { padding-top: 100px; }
+  .facts-sec { padding-top: 88px; }
   .facts-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .fact-card { padding: 22px; min-height: 0; }
   .fact-card .fact-value { font-size: 22px; }
@@ -1135,7 +1224,7 @@ p { margin: 0 0 16px; }
 
   .pricing-grid { grid-template-columns: 1fr; gap: 32px; }
 
-  .final-cta { padding: 66px 0; }
+  .final-cta { padding: 60px 0; }
 
   .contact-card { padding: 24px; width: calc(100% - 36px); }
   .contact-mail { font-size: 18px; }
