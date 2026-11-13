@@ -225,7 +225,7 @@ section[id] { scroll-margin-top: 128px; }
   position: absolute;
   z-index: 0;
   inset: 0;
-  background: radial-gradient(ellipse 52% 50% at 64% 42%, rgba(59, 82, 128, 0.46) 0%, rgba(59, 82, 128, 0.24) 45%, rgba(59, 82, 128, 0) 70%);
+  background: radial-gradient(ellipse 52% 50% at 64% 42%, rgba(59, 82, 128, 0.40) 0%, rgba(59, 82, 128, 0.18) 45%, rgba(59, 82, 128, 0) 70%);
   pointer-events: none;
 }
 
@@ -546,7 +546,7 @@ section[id] { scroll-margin-top: 128px; }
 
 /* ---------- OUR EDGE ---------- */
 
-.facts-sec { padding-top: 113px; background: linear-gradient(180deg, rgba(16, 24, 48, 0.22) 0%, rgba(16, 24, 48, 0) 75%); }
+.facts-sec { padding-top: 113px; }
 
 .facts-grid {
   display: grid;
@@ -728,14 +728,11 @@ section[id] { scroll-margin-top: 128px; }
 /* ---------- Pricing ---------- */
 
 .pricing-sec, .final-cta {
+  background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-2) 100%);
   color: var(--white);
   position: relative;
   overflow: hidden;
 }
-
-.pricing-sec { background: linear-gradient(180deg, #080b13 0%, #131826 100%); }
-
-.final-cta { background: linear-gradient(180deg, #060910 0%, #10141f 100%); }
 
 /* Faint heading glow on Pricing only — the Final CTA has none. */
 .pricing-sec::before {
@@ -774,8 +771,8 @@ section[id] { scroll-margin-top: 128px; }
 }
 
 .price-card.featured {
-  border-color: rgba(255, 204, 51, 0.55);
-  box-shadow: 0 0 0 1px rgba(255, 204, 51, 0.26), 0 18px 44px rgba(0, 0, 0, 0.34);
+  border-color: rgba(255, 204, 51, 0.45);
+  box-shadow: 0 0 0 1px rgba(255, 204, 51, 0.18), 0 18px 44px rgba(0, 0, 0, 0.28);
 }
 
 .price-badge {
@@ -1166,7 +1163,7 @@ section[id] { scroll-margin-top: 128px; }
     left: 50%;
     bottom: 110px;
     transform: translateX(-50%);
-    background: radial-gradient(closest-side, rgba(59, 82, 128, 0.40) 0%, rgba(59, 82, 128, 0.19) 42%, rgba(59, 82, 128, 0) 64%);
+    background: radial-gradient(closest-side, rgba(59, 82, 128, 0.34) 0%, rgba(59, 82, 128, 0.13) 42%, rgba(59, 82, 128, 0) 64%);
   }
   .fan { max-width: 460px; }
   .hero-fan .fan-card.right .vcard-pill { transform: translateX(1px); }
