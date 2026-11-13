@@ -1179,19 +1179,9 @@ section[id] { scroll-margin-top: 128px; }
      fits the narrower cards without overflowing. */
   .fact-card .fact-value { font-size: clamp(28px, 3.2vw, 40px); }
   .work-grid { grid-template-columns: repeat(3, 1fr); }
-  /* Tablet Why stacks like phone: heading/intro, video, benefits. */
-  .why-grid { display: flex; flex-direction: column; gap: 0; }
-  .why-grid > div { display: contents; }
-  .why-grid .eyebrow { order: 1; }
-  .why-grid h2 { order: 2; }
-  .why-grid .lead { order: 3; }
-  .why-grid .why-video { order: 4; }
-  .why-grid .benefit-list { order: 5; }
-  /* Stacked Why heading block is centred like Muse (eyebrow/heading/intro),
-     with dashes on both sides of the eyebrow. */
-  .why-grid .eyebrow, .why-grid h2, .why-grid .lead { text-align: center; }
-  .why-grid .eyebrow::after { content: "\00A0\2014"; color: var(--yellow); }
-  .why-video { max-width: 420px; margin: 0 auto; width: 100%; }
+  /* Tablet Why stays two-column like web (user order 2026-11-13):
+     narrower video column + gap so the text column keeps room. */
+  .why-grid { grid-template-columns: 320px minmax(0, 1fr); gap: 40px; }
   .steps-grid { grid-template-columns: repeat(4, 1fr); }
   .pricing-grid { grid-template-columns: repeat(3, 1fr); }
   .project-layout { grid-template-columns: minmax(0, 360px) 1fr; gap: 36px; }
@@ -1261,6 +1251,10 @@ section[id] { scroll-margin-top: 128px; }
   .why-grid .lead { order: 3; }
   .why-grid .why-video { order: 4; }
   .why-grid .benefit-list { order: 5; }
+  /* Stacked Why heading block is centred like Muse (eyebrow/heading/intro),
+     with dashes on both sides of the eyebrow. */
+  .why-grid .eyebrow, .why-grid h2, .why-grid .lead { text-align: center; }
+  .why-grid .eyebrow::after { content: "\00A0\2014"; color: var(--yellow); }
   .why-video { max-width: 340px; margin: 0 auto; width: 100%; }
 
   /* Vertical timeline: yellow numbered circles joined by a vertical line. */
