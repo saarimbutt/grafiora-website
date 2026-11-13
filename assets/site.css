@@ -886,7 +886,7 @@ section[id] { scroll-margin-top: 128px; }
 
 .faq-a { display: none; padding: 0 24px 22px; color: var(--ink-soft); }
 .faq-a p { margin: 0; }
-.faq-item.open .faq-a { display: block; border-top: 1px solid var(--line); padding-top: 18px; }
+.faq-item.open .faq-a { display: block; border-top: 1px solid var(--line); padding-top: 9px; }
 
 /* ---------- Showcase band ---------- */
 
