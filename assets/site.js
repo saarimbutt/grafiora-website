@@ -243,6 +243,35 @@
     });
   })();
 
+  /* Videos gallery filter: chip buttons show only one category.
+     Guarded on #video-filter, so other pages are unaffected. Hidden
+     cards pause their video so no audio keeps playing off-screen. */
+  (function () {
+    var filterBar = document.getElementById("video-filter");
+    var grid = document.getElementById("video-grid");
+    if (!filterBar || !grid) return;
+    var chips = Array.prototype.slice.call(filterBar.querySelectorAll(".filter-chip"));
+    var cards = Array.prototype.slice.call(grid.querySelectorAll(".work-card"));
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        var wanted = chip.getAttribute("data-filter");
+        chips.forEach(function (c) {
+          var active = c === chip;
+          c.classList.toggle("is-active", active);
+          c.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+        cards.forEach(function (card) {
+          var show = wanted === "all" || card.getAttribute("data-category") === wanted;
+          card.classList.toggle("is-hidden", !show);
+          if (!show) {
+            var video = card.querySelector("video");
+            if (video && !video.paused) video.pause();
+          }
+        });
+      });
+    });
+  })();
+
   /* Scroll progress line: thin yellow bar fixed at the very top of the
      viewport; fills left-to-right as the page scrolls down, empties back
      as it scrolls up. The bar element is created here so every page gets

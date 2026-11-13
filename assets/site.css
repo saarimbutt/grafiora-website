@@ -593,6 +593,56 @@ section[id] { scroll-margin-top: 128px; }
 
 .work-cta { margin-top: 36px; text-align: center; }
 
+/* ---------- Videos gallery: back button + category filter ----------
+   Chips wrap at every width and the grid keeps its 3 / 3 / 1 columns,
+   so no breakpoint overrides are needed. */
+
+.back-row { margin: 0 0 20px; }
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.back-btn:hover { border-color: var(--ink); transform: translateY(-1px); }
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 28px;
+}
+.filter-chip {
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.filter-chip:hover { border-color: var(--ink); transform: translateY(-1px); }
+.filter-chip.is-active {
+  background: linear-gradient(180deg, var(--yellow-light) 0%, var(--yellow) 100%);
+  border-color: transparent;
+  color: var(--navy);
+  font-weight: 700;
+}
+.work-card.is-hidden { display: none; }
+
 /* ---------- Why ---------- */
 
 .why-grid {
