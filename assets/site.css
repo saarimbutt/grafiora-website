@@ -155,6 +155,19 @@ p { margin: 0 0 16px; }
 
 .btn-row { display: flex; flex-wrap: wrap; gap: 14px; }
 
+/* Scroll progress line: fixed at the very top of the viewport, above the
+   sticky header; width is driven by JS (0% at top, 100% at page end). */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: var(--yellow);
+  z-index: 100;
+  pointer-events: none;
+}
+
 /* ---------- Header ---------- */
 
 .site-header {

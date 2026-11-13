@@ -204,4 +204,31 @@
       if (e.key === "Escape") closeMenu();
     });
   }
+  /* Scroll progress line: thin yellow bar fixed at the very top of the
+     viewport; fills left-to-right as the page scrolls down, empties back
+     as it scrolls up. The bar element is created here so every page gets
+     it with no markup changes. */
+  var progressBar = document.createElement("div");
+  progressBar.className = "scroll-progress";
+  progressBar.setAttribute("aria-hidden", "true");
+  document.body.appendChild(progressBar);
+  var progressQueued = false;
+  function updateProgress() {
+    progressQueued = false;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = 0;
+    if (max > 0) {
+      pct = Math.min(100, Math.max(0, (window.scrollY || window.pageYOffset) / max * 100));
+    }
+    progressBar.style.width = pct + "%";
+  }
+  function queueProgress() {
+    if (progressQueued) return;
+    progressQueued = true;
+    if ("requestAnimationFrame" in window) requestAnimationFrame(updateProgress);
+    else updateProgress();
+  }
+  window.addEventListener("scroll", queueProgress, { passive: true });
+  window.addEventListener("resize", queueProgress);
+  updateProgress();
 })();
