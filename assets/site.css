@@ -86,7 +86,8 @@ section[id] { scroll-margin-top: 128px; }
 .hero-copy .eyebrow::before,
 .section-head .eyebrow:not(.hiw-label)::before,
 .final-cta .eyebrow::before,
-.contact-card .eyebrow::before {
+.contact-card .eyebrow::before,
+.why-grid .eyebrow::before {
   content: "\2014\00A0";
   color: var(--yellow);
 }
@@ -1186,6 +1187,10 @@ section[id] { scroll-margin-top: 128px; }
   .why-grid .lead { order: 3; }
   .why-grid .why-video { order: 4; }
   .why-grid .benefit-list { order: 5; }
+  /* Stacked Why heading block is centred like Muse (eyebrow/heading/intro),
+     with dashes on both sides of the eyebrow. */
+  .why-grid .eyebrow, .why-grid h2, .why-grid .lead { text-align: center; }
+  .why-grid .eyebrow::after { content: "\00A0\2014"; color: var(--yellow); }
   .why-video { max-width: 420px; margin: 0 auto; width: 100%; }
   .steps-grid { grid-template-columns: repeat(4, 1fr); }
   .pricing-grid { grid-template-columns: repeat(3, 1fr); }
