@@ -485,9 +485,8 @@ section[id] { scroll-margin-top: 128px; }
   background: #ffffff;
   border: 1px solid var(--line);
   border-radius: 30px;
-  box-shadow: var(--shadow-pill);
-  padding: 16px 32px;
-  min-height: 85px;
+  box-shadow: 0 1px 2px rgba(17,24,39,.05), 0 4px 12px rgba(17,24,39,.04), 0 20px 44px rgba(17,24,39,.08);
+  padding: 16px 32px 18px;
   height: auto;
   overflow: visible;
   position: relative;
@@ -496,13 +495,14 @@ section[id] { scroll-margin-top: 128px; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 6px;
 }
 
 .platform-label {
   margin: 0;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
+  line-height: 1.3;
   text-align: center;
 }
 
@@ -524,7 +524,7 @@ section[id] { scroll-margin-top: 128px; }
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 14px 32px;
+  gap: 6px 30px;
   width: 100%;
 }
 
@@ -532,11 +532,13 @@ section[id] { scroll-margin-top: 128px; }
   opacity: 0.70;
   color: #000000;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14.5px;
   line-height: 1.3;
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 7px;
+  padding: 2px 0;
+  white-space: nowrap;
   text-align: center;
 }
 
@@ -647,18 +649,14 @@ section[id] { scroll-margin-top: 128px; }
 
 /* ---------- Why ---------- */
 
-/* Why stacks centred on ALL views (user order 2026-11-13: the phone/tablet
-   position applies to web too): heading/intro, video, benefits. */
-.why-grid { display: flex; flex-direction: column; gap: 0; }
-.why-grid > div { display: contents; }
-.why-grid .eyebrow { order: 1; text-align: center; }
-.why-grid h2 { order: 2; text-align: center; }
-.why-grid .lead { order: 3; text-align: center; }
-.why-grid .why-video { order: 4; }
-.why-grid .benefit-list { order: 5; }
-.why-grid .eyebrow::after { content: "\00A0\2014"; color: var(--yellow); }
+.why-grid {
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+}
 
-.why-video { margin: 0 auto; position: relative; width: 100%; max-width: 420px; }
+.why-video { margin: 0; position: relative; }
 .why-video .vcard-media { aspect-ratio: 9 / 16; border-radius: 18px; box-shadow: var(--shadow-card); }
 
 .benefit-list { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 0; }
@@ -1173,10 +1171,7 @@ section[id] { scroll-margin-top: 128px; }
   .hero-fan .vcard-controls { top: 8px; right: 8px; gap: 6px; }
   .hero-fan .vbtn { width: 36px; height: 36px; }
   .hero-fan .vbtn svg { width: 15px; height: 15px; }
-  .platform-pill { width: calc(100% - 48px); border-radius: 30px; }
-  .platform-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 12px; }
-  .platform-list li { flex-direction: row; justify-content: center; font-size: 15px; white-space: nowrap; }
-  .platform-list svg { height: 20px; }
+  .platform-pill { width: calc(100% - 48px); }
   .facts-sec { padding-top: 88px; }
   .final-cta { padding: 70px 0; }
   .facts-grid { grid-template-columns: repeat(3, 1fr); }
@@ -1242,10 +1237,11 @@ section[id] { scroll-margin-top: 128px; }
   .platform-strip { margin-top: -10px; }
   .dialog-overlay { padding: 16px; }
   .dialog-panel { padding: 24px 20px; }
-  .platform-pill { width: calc(100% - 36px); border-radius: 28px; padding: 18px 12px; }
-  .platform-list { gap: 12px 8px; }
-  .platform-list li { flex-direction: column; gap: 6px; font-size: 13px; }
-  .platform-list svg { height: 19px; }
+  .platform-pill { width: calc(100% - 36px); border-radius: 28px; padding: 20px 16px 22px; gap: 8px; }
+  .platform-label { font-size: 15px; line-height: 1.25; }
+  .platform-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 20px; }
+  .platform-list li { flex-direction: column; gap: 5px; font-size: 12.5px; line-height: 1.2; padding: 4px 2px; white-space: normal; }
+  .platform-list svg { height: 20px; }
   .faq-a p { font-size: 16px; line-height: 1.65; }
 
   .facts-sec { padding-top: 88px; }
@@ -1297,6 +1293,14 @@ section[id] { scroll-margin-top: 128px; }
   .project-layout .vcard-media { max-width: 420px; margin: 0 auto; }
 }
 
+/* ---------- Small phones: <=479px (platform pill) ---------- */
+
+@media (max-width: 479px) {
+  .platform-list { gap: 14px 16px; }
+  .platform-list li { font-size: 11.5px; }
+  .platform-list svg { height: 19px; }
+}
+
 /* ---------- Small phones: <=380px ---------- */
 
 @media (max-width: 380px) {
@@ -1304,7 +1308,6 @@ section[id] { scroll-margin-top: 128px; }
   .showcase-fan .fan-card.right .vcard-pill { transform: translateX(10px); }
   .main-nav { gap: 12px; }
   .main-nav a { font-size: 13px; }
-  .platform-list li { font-size: 12px; }
   .facts-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .fact-card { padding: 18px; }
   .fact-card .fact-value { font-size: 20px; }
