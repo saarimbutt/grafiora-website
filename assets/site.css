@@ -493,11 +493,6 @@ p { margin: 0 0 16px; }
   font-weight: 700;
   font-size: 16px;
   text-align: center;
-  display: flex;
-  align-items: center;
-  gap: 0;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .platform-label .dot {
@@ -507,7 +502,7 @@ p { margin: 0 0 16px; }
   border-radius: 50%;
   background: var(--yellow);
   margin-right: 9px;
-  flex-shrink: 0;
+  vertical-align: middle;
 }
 
 .platform-list {
