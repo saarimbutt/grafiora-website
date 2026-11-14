@@ -620,6 +620,7 @@ section[id] { scroll-margin-top: 128px; }
 }
 .back-btn:hover { border-color: var(--ink); transform: translateY(-1px); }
 
+.videos-sec { padding-top: 32px; padding-bottom: 28px; }
 .filter-chips {
   display: flex;
   flex-wrap: wrap;
@@ -1176,6 +1177,7 @@ section[id] { scroll-margin-top: 128px; }
   .platform-pill { width: calc(100% - 48px); }
   .facts-sec { padding-top: 88px; }
   .final-cta { padding: 70px 0; }
+  .videos-sec { padding-top: 28px; padding-bottom: 24px; }
   .facts-grid { grid-template-columns: repeat(3, 1fr); }
   /* Tablet fact headlines stay small enough that "Conversion" (5.47em)
      fits the narrower cards without overflowing. */
@@ -1237,6 +1239,7 @@ section[id] { scroll-margin-top: 128px; }
   .faq-a p { font-size: 16px; line-height: 1.65; }
 
   .facts-sec { padding-top: 88px; }
+  .videos-sec { padding-top: 24px; padding-bottom: 20px; }
   .facts-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .fact-card { padding: 22px; min-height: 0; }
   .fact-card .fact-value { font-size: 22px; }
