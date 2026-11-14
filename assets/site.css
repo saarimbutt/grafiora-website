@@ -1155,6 +1155,8 @@ section[id] { scroll-margin-top: 128px; }
   .hero { scroll-margin-top: 120px; padding: 48px 0 80px; }
   section[id] { scroll-margin-top: 120px; }
   .hero .container { grid-template-columns: 1fr 460px; gap: 32px; }
+  /* Tablet headline smaller so it breaks in fewer lines in the narrow text column. */
+  .hero h1 { font-size: clamp(36px, 4.6vw, 56px); }
   /* Glow re-anchored to the fan area: 520x280, centre 250px above the hero foot. */
   .hero::before {
     inset: auto;
@@ -1209,7 +1211,7 @@ section[id] { scroll-margin-top: 128px; }
   /* Phone headline breaks into 2 lines — "Video ads built to" /
      "stop the scroll." — with one yellow pill. The 9em cap holds the
      break at every phone width (the desktop 7.3em cap would force 3). */
-  .hero h1 { max-width: 9em; }
+  .hero h1 { max-width: 9em; font-size: clamp(40px, 5.6vw, 76px); } /* Base size restored: the tablet reduction must not shrink the phone headline. */
   /* Phone buttons are full-width stacked pills (hero, Final CTA, Contact). */
   .hero .btn-row, .final-cta .btn-row { flex-direction: column; align-items: stretch; }
   .hero .btn-row .btn, .final-cta .btn-row .btn, .contact-card .btn { width: 100%; }
