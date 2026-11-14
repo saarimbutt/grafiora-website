@@ -1195,6 +1195,21 @@ section[id] { scroll-margin-top: 128px; }
   .site-footer .container { flex-direction: column; text-align: center; gap: 10px; }
 }
 
+/* ---------- Narrow tablet: 768-920px ---------- */
+
+/* Pricing badges: at these widths the absolute top-right badge covers the
+   "Growth" name (measured text overlap to 880px; only +5px clear at 900px).
+   The badge joins the flow on its own row above the name instead (it is the
+   first child of .price-card on both pages). Desktop (>920px) and phone
+   (<768px) keep the absolute badge untouched. */
+@media (min-width: 768px) and (max-width: 920px) {
+  .price-badge {
+    position: static;
+    align-self: flex-start;
+    margin: 0 0 12px;
+  }
+}
+
 /* ---------- Mobile: <=767px ---------- */
 
 @media (max-width: 767px) {
